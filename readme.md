@@ -1,5 +1,10 @@
 ![mindelixir logo](https://raw.githubusercontent.com/ssshooter/mind-elixir-core/master/logo.png)
 
+<p>
+  <a href="https://www.npmjs.com/package/mind-elixir"><img src="https://img.shields.io/npm/v/mind-elixir" alt="version"></a>
+  <img src="https://img.shields.io/npm/l/mind-elixir" alt="license">
+</p>
+
 Mind elixir is a free open source mind map core.
 
 [中文](https://github.com/ssshooter/mind-elixir-core/blob/master/readme.cn.md)
@@ -9,6 +14,10 @@ Mind elixir is a free open source mind map core.
 ![mindelixir](https://raw.githubusercontent.com/ssshooter/mind-elixir-core/master/screenshot.png)
 
 https://mindelixir.ink/#/
+
+### Try it in codepen
+
+https://codepen.io/ssshooter/pen/GVQRYK
 
 ## Use in your project
 
@@ -27,7 +36,7 @@ import MindElixir, { E } from 'mind-elixir'
 #### Script tag
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/mind-elixir@0.6.1/dist/mind-elixir.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mind-elixir/dist/mind-elixir.js"></script>
 ```
 
 ### HTML structure
@@ -55,7 +64,10 @@ import MindElixir, { E } from 'mind-elixir'
 let mind = new MindElixir({
   el: '#map',
   direction: MindElixir.LEFT,
-  data: MindElixir.new('new topic'), // can also set data return from .getAllData()
+  // create new map data
+  data: MindElixir.new('new topic'),
+  // or set as data that is return from `.getAllData()`
+  data: {...},
   draggable: true, // default true
   contextMenu: true, // default true
   toolBar: true, // default true
@@ -77,7 +89,7 @@ mind.getAllData()
 
 ## Doc
 
-https://inspiring-golick-3c01b9.netlify.com/
+https://doc.mindelixir.ink/
 
 ## Dependency
 

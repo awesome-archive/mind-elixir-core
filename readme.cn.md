@@ -1,10 +1,15 @@
 ![mindelixir logo](https://raw.githubusercontent.com/ssshooter/mind-elixir-core/master/logo.png)
 
+<p>
+  <a href="https://www.npmjs.com/package/mind-elixir"><img src="https://img.shields.io/npm/v/mind-elixir" alt="version"></a>
+  <img src="https://img.shields.io/npm/l/mind-elixir" alt="license">
+</p>
+
 Mind elixir 是一个免费开源的思维导图内核
 
 ## 立即试用
 
-![mindelixir](https://raw.githubusercontent.com/ssshooter/mind-elixir-core/master/screenshot.png)
+![mindelixir](https://raw.githubusercontent.com/ssshooter/mind-elixir-core/master/screenshot.cn.png)
 
 https://mindelixir.ink/#/
 
@@ -25,7 +30,7 @@ import MindElixir, { E } from 'mind-elixir'
 #### script 标签引入
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/mind-elixir@0.6.1/dist/mind-elixir.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mind-elixir/dist/mind-elixir.js"></script>
 ```
 
 ### HTML 结构
@@ -53,7 +58,10 @@ import MindElixir, { E } from 'mind-elixir'
 let mind = new MindElixir({
   el: '#map',
   direction: MindElixir.LEFT,
-  data: MindElixir.new('new topic'), // 也可以把 getDataAll 得到的数据初始化
+  // 创建新数据
+  data: MindElixir.new('new topic'), 
+  // 也使用 getDataAll 得到的数据
+  data: {...},
   draggable: true, // 启用拖动 default true
   contextMenu: true, // 启用右键菜单 default true
   toolBar: true, // 启用工具栏 default true

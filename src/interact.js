@@ -1,7 +1,7 @@
 /**
  * @namespace MapInteraction
  */
-/** 
+/**
  * @function
  * @instance
  * @name selectNode
@@ -134,6 +134,54 @@ export let getAllData = function() {
     })
   )
 }
+
+/**
+ * @function
+ * @instance
+ * @name enableEdit
+ * @memberof MapInteraction
+ */
+export let enableEdit = function() {
+  this.editable = true
+}
+
+/**
+ * @function
+ * @instance
+ * @name disableEdit
+ * @memberof MapInteraction
+ */
+export let disableEdit = function() {
+  this.editable = false
+}
+
+/**
+ * @function
+ * @instance
+ * @name getAllDataMd
+ * @description Get all node data as markdown.
+ * @memberof MapInteraction
+ * @return {Object}
+ */
+export let getAllDataMd = function() {
+  let data = this.nodeData
+  let mdString = '# ' + data.topic + '\n\n'
+  function writeMd(children, deep) {
+    for (let i = 0; i < children.length; i++) {
+      if (deep <= 6) {
+        mdString += ''.padStart(deep, '#') + ' ' + children[i].topic + '\n\n'
+      } else {
+        mdString +=
+          ''.padStart(deep - 7, '\t') + '- ' + children[i].topic + '\n'
+      }
+      if (children[i].children) {
+        writeMd(children[i].children, deep + 1)
+      }
+    }
+  }
+  writeMd(data.children, 2)
+  return mdString
+}
 /**
  * @function
  * @instance
@@ -226,5 +274,16 @@ export let initRight = function() {
  */
 export let initSide = function() {
   this.direction = 2
+  this.init()
+}
+
+/**
+ * @function
+ * @instance
+ * @name setLocale
+ * @memberof MapInteraction
+ */
+export let setLocale = function(locale) {
+  this.locale = locale
   this.init()
 }
